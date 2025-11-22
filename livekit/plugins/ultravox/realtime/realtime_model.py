@@ -121,7 +121,7 @@ class RealtimeModel(llm.RealtimeModel):
         self,
         *,
         model: UltravoxModel | str = DEFAULT_MODEL,
-        voice: UltravoxVoice | str = DEFAULT_VOICE,
+        voice: str = DEFAULT_VOICE,
         api_key: str | None = None,
         base_url: str | None = None,
         system_prompt: str = "You are a helpful assistant.",
