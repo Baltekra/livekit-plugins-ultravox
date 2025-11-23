@@ -619,8 +619,10 @@ class RealtimeSession(
                     create_call_url += f"?{query_string}"
                 
                 selected_tools = parse_tools(list(self._tools.function_tools.values()))
+                logger.debug(f"[ultravox] selected_tools: {selected_tools}")
                 if is_given(self._realtime_model._opts.native_tools):
-                    selected_tools = self._realtime_model._opts.native_tools
+                    selected_tools = self._realtime_model._opts.native_tools + selected_tools
+                    logger.debug(f"[ultravox] native_tools: {selected_tools}")
 
                 # Build payload with core parameters
                 payload: dict[str, Any] = {
